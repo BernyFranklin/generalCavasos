@@ -20,16 +20,16 @@ public class Menu {
         printLine();
         System.out.println("General Cavasos Command App");
         printLine();
-        printCommand('i', "Issue a command");
-        printCommand('l', "List all commands");
-        printCommand('u', "Undo last command");
-        printCommand('r', "Redo last command");
-        printCommand('q', "Quit");
+        printOptions('i', "Issue a command");
+        printOptions('l', "List all commands");
+        printOptions('u', "Undo last command");
+        printOptions('r', "Redo last command");
+        printOptions('q', "Quit");
         printLine();
     }
 
     // printCommand function formats a string to display the menu options
-    private static void printCommand(Character command, String description) {
+    private static void printOptions(Character command, String description) {
         System.out.printf("%s\t%s\n", command, description);
     }
     // printLine function prints a line of 40 dashes
@@ -61,7 +61,7 @@ public class Menu {
                 System.out.printf("\nInvalid selection, please try again\n\n");
             }
         }   // End of loop
-
+        // Return valid char
         return command;
     }
 
