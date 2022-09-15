@@ -20,10 +20,10 @@ public class CavazosExample {
 
     // Initialize command
     char command = '_';
-
-    appMenu.print();
-    command = appMenu.getCommand();
-
+    while (command != 'q') {
+      appMenu.print();
+      command = appMenu.getCommand();
+    }
     
 
     
