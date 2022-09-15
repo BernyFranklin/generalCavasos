@@ -1,6 +1,7 @@
 package com.cis055;
 
 import java.util.*;
+import java.util.Arrays;
 
 // This class creates a user menu and the functions involved to use it
 public class Menu {
@@ -17,6 +18,8 @@ public class Menu {
     // print() function
     public void print() {
         printLine();
+        System.out.println("General Cavasos Command App");
+        printLine();
         printCommand('i', "Issue a command");
         printCommand('l', "List all commands");
         printCommand('u', "Undo last command");
@@ -32,5 +35,50 @@ public class Menu {
     // printLine function prints a line of 40 dashes
     private static void printLine() {
         System.out.println("----------------------------------------");
+    }
+
+    // getCommand gets a character and evaluates if valid selection
+    public Character getCommand() {
+        // Initialize flag for loop
+        boolean goodInput = false;
+        Character command = '_';
+        
+        // Enter loop until valid 
+        while (!goodInput) {
+            // Prompt for input
+            System.out.print("Enter a command: ");
+            // Read it
+            String rawInput = input.nextLine();
+            // Convert to lower
+            if (rawInput.length() > 0) {
+                rawInput = rawInput.toLowerCase();
+                command = rawInput.charAt(0);
+            }
+            // Send for validation
+            goodInput = validateCommand(command);
+            // Flag for invalid input
+            if (!goodInput) {
+                System.out.printf("\nInvalid selection, please try again\n\n");
+            }
+        }   // End of loop
+
+        return command;
+    }
+
+    // validateCommand crosses input versus valid menu options
+    private static boolean validateCommand(Character userInput) {
+        // Return Value
+        boolean isValid = false;
+        // Valid options
+        Character[] options = {'i', 'l', 'u', 'r', 'q'};
+        // Crosscheck input 
+        for (int i = 0; i < options.length ; i++) {
+            if (userInput == options[i]) {
+                isValid = true;
+                break;
+            }
+        }
+        // Return results
+        return isValid;
     }
 }

@@ -21,6 +21,9 @@ public class CavazosExample {
     // Initialize command
     char command = '_';
 
+    appMenu.print();
+    command = appMenu.getCommand();
+
     
 
     
