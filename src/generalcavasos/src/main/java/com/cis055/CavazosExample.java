@@ -2,26 +2,36 @@ package com.cis055;
 
 import java.util.Random;
 import org.json.simple.*;
+import java.util.Scanner;
 
 public class CavazosExample {
 
   public static void main(String[] args) {
     String fileName =
-      "/Users/jerom/Documents/GitHub/class-java/general-cavazos/undoredo/src/main/java/com/cavazos/commands.json";
+      "/Users/frankbernal/Documents/GitHub/sjccFall22/generalCavasos/src/generalcavasos/src/main/java/com/cis055/commands.json";
 
     // read coammands
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
     System.out.println(commandArray);
 
-    // print list of all commands
-    System.out.println("----- List of all commands -----");
-    print(commandArray);
+    // Create Menu object
+    Menu appMenu = new Menu();
 
-    System.out.println(
-      "----- Issuing 5 random commands from General Cavazos -----"
-    );
-    randomCommand(commandArray, 5);
+    // Initialize command
+    char command = '_';
+
+    
+
+    
+    // print list of all commands
+    //System.out.println("----- List of all commands -----");
+    //print(commandArray);
+
+    //System.out.println(
+    //  "----- Issuing 5 random commands from General Cavazos -----"
+    //);
+    //randomCommand(commandArray, 5);
   }
 
   // randomly issue commands from General Cavazos
@@ -56,3 +66,5 @@ public class CavazosExample {
     return arr;
   }
 }
+
+  
