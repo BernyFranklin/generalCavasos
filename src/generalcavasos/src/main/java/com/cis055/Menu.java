@@ -14,10 +14,10 @@ public class Menu {
         this.input = new Scanner(System.in);
     }
 
-    // print() function
+    // print() displays the menu with all options
     public void print() {
         printLine();
-        System.out.println("General Cavasos Command App");
+        System.out.println("General Cavazos Command App");
         printLine();
         printOptions('i', "Issue a command");
         printOptions('l', "List all commands");
@@ -27,16 +27,17 @@ public class Menu {
         printLine();
     }
 
-    // printCommand function formats a string to display the menu options
+    // -------Below is the list of class functions---------
+    // printoptions() formats a string to display the menu options
     private static void printOptions(Character command, String description) {
         System.out.printf("%s\t%s\n", command, description);
     }
-    // printLine function prints a line of 40 dashes
+    // printLine() prints a line of 40 dashes
     private static void printLine() {
         System.out.println("----------------------------------------");
     }
 
-    // getCommand gets a character and evaluates if valid selection
+    // getCommand() gets a character and evaluates if valid selection
     public Character getCommand() {
         // Initialize flag for loop
         boolean goodInput = false;
@@ -64,7 +65,7 @@ public class Menu {
         return command;
     }
 
-    // validateCommand crosses input versus valid menu options
+    // validateCommand() crosses input versus valid menu options
     private static boolean validateCommand(Character userInput) {
         // Return Value
         boolean isValid = false;
@@ -80,4 +81,4 @@ public class Menu {
         // Return results
         return isValid;
     }
-}
+}   // End of Menu class

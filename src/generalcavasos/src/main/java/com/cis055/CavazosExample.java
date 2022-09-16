@@ -4,7 +4,7 @@ package com.cis055;
  * Frank Bernal
  * CIS-055
  * Date Started: 15 Sep 2022
- * Date Finished: 
+ * Date Finished: 15 Sep 2022
  */
 
 import org.json.simple.*;
@@ -47,7 +47,7 @@ public class CavazosExample {
     // Add command to stack
     commandHistory.push(commandArray[randIndex]);
     // Print Command for user
-    System.out.printf("[General Cavasos]: \"%s!\"\n", commandArray[randIndex]);
+    System.out.printf("[General Cavazos]: \"%s!\"\n", commandArray[randIndex]);
   }
 
   // print() prints command array
@@ -93,7 +93,7 @@ public class CavazosExample {
         redoLastCommand();
         break;
       case 'q':
-        System.out.printf("\nThank you General Cavasos!\n\n");
+        System.out.printf("\nThank you General Cavazos!\n\n");
         break;
       default:
         System.out.println("Unknown Selection");
@@ -117,29 +117,29 @@ public class CavazosExample {
   private static void undoLastCommand() {
     // If stack is empty
     if (commandHistory.empty()) {
-      System.out.printf("\n[General Cavasos]: \"There are no more orders to undo\"\n");
+      System.out.printf("\n[General Cavazos]: \"There are no more orders to undo\"\n");
     }
     // Pop the last command
     else {
       String undoCommand = commandHistory.pop();
       // Print the command to undo
-      System.out.printf("\n[General Cavasos]: \"Belay the last order: %s\"\n", undoCommand);
+      System.out.printf("\n[General Cavazos]: \"Belay the last order: %s!\"\n", undoCommand);
     }
   }
 
   // redoLastCommand() repeats the last command made
   private static void redoLastCommand() {
-    // Peek at the last command entered
-    String repeatCommand = commandHistory.peek();
     // If none tell the user
     if (commandHistory.empty()) {
-      System.out.printf("\n[General Cavasos]: \"There are no orders to repeat\"");
+      System.out.printf("\n[General Cavazos]: \"There are no orders to repeat\"\n");
     }
-    // Otherwise, repeat
     else {
-      System.out.printf("\n[General Cavasos]: \"Repeat: %s!\"\n", repeatCommand);
+      // Peek at the last command entered
+      String repeatCommand = commandHistory.peek();
+      // Otherwise, repeat
+      System.out.printf("\n[General Cavazos]: \"Repeat: %s!\"\n", repeatCommand);
     }
   }
-}
+} // End of Cavazos
 
   
