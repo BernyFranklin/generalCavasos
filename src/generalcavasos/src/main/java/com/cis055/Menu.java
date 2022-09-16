@@ -1,7 +1,6 @@
 package com.cis055;
 
 import java.util.*;
-import java.util.Arrays;
 
 // This class creates a user menu and the functions involved to use it
 public class Menu {
