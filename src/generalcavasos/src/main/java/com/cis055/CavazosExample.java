@@ -1,6 +1,12 @@
 package com.cis055;
+/*
+ * GeneralCavasos
+ * Frank Bernal
+ * CIS-055
+ * Date Started: 15 Sep 2022
+ * Date Finished: 
+ */
 
-import java.util.Random;
 import org.json.simple.*;
 import java.util.*;
 
@@ -15,15 +21,8 @@ public class CavazosExample {
   // Empty stack
   public static Stack<String> commandHistory = new Stack<String>();
 
+  // Main Program
   public static void main(String[] args) {
-    //String fileName =
-    //  "/Users/frankbernal/Documents/GitHub/sjccFall22/generalCavasos/src/generalcavasos/src/main/java/com/cis055/commands.json";
-
-    // read coammands
-    //JSONArray commandJSONArray = JSONFile.readArray(fileName);
-    //String[] commandArray = getCommandArray(commandJSONArray);
-   // System.out.println(commandArray);
-
     // Create Menu object
     Menu appMenu = new Menu();
 
@@ -35,31 +34,34 @@ public class CavazosExample {
       command = appMenu.getCommand();
       executeCommand(command);
     }
-
-    //System.out.println(
-    //  "----- Issuing 5 random commands from General Cavazos -----"
-    //);
-    //randomCommand(commandArray, 5);
   }   // End of main Program
 
-  // randomly issue commands from General Cavazos
+  // ------------This is the start of all class functions------------------
+
+  // randomCommand() randomly issue commands from General Cavazos
   public static void randomCommand(String[] commandArray) {
+    // New instance of Random
     Random rand = new Random();
+    // Get an index between 0 and length
     int randIndex = rand.nextInt(commandArray.length);
+    // Add command to stack
     commandHistory.push(commandArray[randIndex]);
+    // Print Command for user
     System.out.printf("[General Cavasos]: \"%s!\"\n", commandArray[randIndex]);
   }
 
-  // print command array
+  // print() prints command array
   public static void print(String[] commandArray) {
+    // Print a small header and all commands available
     System.out.printf("Number\tCommand\n");
     System.out.printf("------\t---------------\n");
+    // Loop used to iterate through all commands
     for (int i = 0; i < commandArray.length; i++) {
       System.out.printf("%04d\t%s\n", i, commandArray[i]);
     }
   }
 
-  // get array of commands
+  // getCommandArray() gets array of commands by reading the JSON object
   public static String[] getCommandArray(JSONArray commandArray) {
     String[] arr = new String[commandArray.size()];
 
@@ -71,7 +73,7 @@ public class CavazosExample {
     return arr;
   }
 
-  // Execute commands
+  // executeCommand() uses a switch case to perform the commands
   public static void executeCommand(Character command) {
     switch (command) {
       case 'i':
@@ -99,12 +101,12 @@ public class CavazosExample {
     }
   }
 
-  // bigLine prints a line that's 40 dashes
+  // bigLine() prints a line that's 40 dashes
   private static void bigLine() {
     System.out.println("----------------------------------------");
   }
 
-  // header prints a header
+  // header() prints a header for the command selected
   private static void header(String commandHeader) {
     bigLine();
     System.out.printf("\t%s\n", commandHeader);
@@ -113,26 +115,29 @@ public class CavazosExample {
 
   // undoLastCommand() removes the last command and tells the user
   private static void undoLastCommand() {
-    // Pop the last command
-    String undoCommand = commandHistory.pop();
-    // If empty alert user
+    // If stack is empty
     if (commandHistory.empty()) {
-      System.out.printf("\n[General Cavasos]: \"There are no more orders to undo\"");
+      System.out.printf("\n[General Cavasos]: \"There are no more orders to undo\"\n");
     }
-    // Print the order to undo
+    // Pop the last command
     else {
-    System.out.printf("\n[General Cavasos]: \"Belay the last order: %s\"\n", undoCommand);
+      String undoCommand = commandHistory.pop();
+      // Print the command to undo
+      System.out.printf("\n[General Cavasos]: \"Belay the last order: %s\"\n", undoCommand);
     }
   }
 
   // redoLastCommand() repeats the last command made
   private static void redoLastCommand() {
+    // Peek at the last command entered
     String repeatCommand = commandHistory.peek();
+    // If none tell the user
     if (commandHistory.empty()) {
       System.out.printf("\n[General Cavasos]: \"There are no orders to repeat\"");
     }
+    // Otherwise, repeat
     else {
-      System.out.printf("\n[General Cavasos]: \"Repeat: %s\"", repeatCommand);
+      System.out.printf("\n[General Cavasos]: \"Repeat: %s!\"\n", repeatCommand);
     }
   }
 }
